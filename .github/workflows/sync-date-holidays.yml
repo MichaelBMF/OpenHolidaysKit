@@ -1,0 +1,17 @@
+name: Sync date-holidays data
+
+on:
+  workflow_dispatch:
+    inputs:
+      upstream_ref:
+        description: "date-holidays ref, tag, or commit"
+        required: false
+        default: "master"
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sync placeholder
+        run: ./tools/sync-date-holidays/sync.sh
